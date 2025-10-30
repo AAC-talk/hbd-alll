@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Ulang Tahun Spesial</title>
+    
+    <style>
+        /* Styling Umum dan Background (Dipertahankan dari contoh) */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); /* Gradient ceria */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Kartu Utama */
+        .card-kotak {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card-kotak:hover {
+             transform: scale(1.03);
+        }
+
+        /* Header (HBD!) */
+        .header-hbd {
+            color: #ff3366; 
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        /* Subtitle (Nama dan Usia) */
+        .subtitle {
+            color: #5d5d5d;
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .subtitle strong {
+            color: #4a148c; 
+        }
+
+        /* Isi Pesan */
+        .message-content {
+            text-align: left;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Pesan Penutup */
+        .closing-message {
+            color: #d32f2f;
+            font-weight: bold;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+
+        /* Signature */
+        .signature {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        /* Tombol Pesan Rahasia */
+        .button-pesan {
+            background-color: #4CAF50; /* Hijau */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-pesan:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-kotak">
+        <div class="header-hbd">HBD!</div>
+        
+        <div class="subtitle">Halo <strong id="nama-target">Alfi ❤️ </strong>! Udah Tua Ya? 😂</div>
+
+        <div class="message-content">
+            <p>Selamat ulang tahun ke <span id="usia-target">(hehehe jujurly aku lupa 😜)</span> kalau ngga salah sih yg ke 20 ! Gak nyangka ya, kita udah temenan selama itu, hampir setahunlahh.</p>
+            
+            <p>Tapi serius, kamu teman terandomku yang pernah ada. Meskipun sering gesrek, makasih udah jadi teman yang sering dengar plot twist hidupku hehe.</p>
+            
+            <p>Sehat selalu bro, jodohmu mendekat, dan semoga semoga lainnya. Aamiin....</p>
+        </div>
+
+        <div class="signature">
+            Dari: <span id="nama-pengirim">Athallah</span>, si paling tidak bisa ditebak ❤️
+        </div>
+        
+        <button class="button-pesan" onclick="tampilkanPesanKhusus()">
+            KLIK UNTUK PESAN TERAKHIR! ✨
+        </button>
+    </div>
+
+    <script>
+        function tampilkanPesanKhusus() {
+            // Minta input nama penerima dan pengirim untuk personalisasi
+            let target = prompt("Masukkan nama penerima (misal: Alfilli):", "Alfilli");
+            let pengirim = prompt("Masukkan nama pengirim (misal: Athallah):", "Athallah");
+            
+            if (target) {
+                // Update nama di kartu
+                document.getElementById('nama-target').textContent = target;
+            }
+            if (pengirim) {
+                // Update nama pengirim
+                document.getElementById('nama-pengirim').textContent = pengirim;
+            }
+
+            // Pesan Ucapan Khusus
+            let pesanFinal = `Hai ${target}! Selain yang tertulis di kartu, aku cuma mau bilang:\n\n"Semoga setiap langkah yang kamu ambil di tahun ini membawa kebahagiaan dan keberuntungan yang tak terduga. Kamu adalah teman yang luar biasa. Jangan pernah berubah!"\n\nSelamat Menuaa brooo! 🎉`;
+            
+            alert(pesanFinal);
+            
+            // Opsional: Ganti teks tombol setelah diklik
+            const tombol = document.querySelector('.button-pesan');
+            tombol.textContent = "Pesan Sudah Dibaca! ✅";
+            tombol.disabled = true; // Nonaktifkan agar tidak bisa diklik lagi
+            tombol.style.backgroundColor = '#757575'; // Ubah warna tombol menjadi abu-abu
+        }
+    </script>
+
+</body>
+</html>
